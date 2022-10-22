@@ -8,7 +8,7 @@ output "kops_iam_secret" {
 }
 
 output "kops_name_servers" {
-  value = aws_route53_zone.sub_domain.name_servers
+  value = tolist(aws_route53_zone.sub_domain.name_servers)
 }
 
 output "kops_bucket_name" {

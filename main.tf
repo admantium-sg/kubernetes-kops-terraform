@@ -34,12 +34,12 @@ resource "aws_iam_access_key" "kops" {
 }
 
 resource "aws_route53_zone" "domain" {
-  name = var.kops_domain
+  name          = var.kops_domain
   force_destroy = true
 }
 
 resource "aws_route53_zone" "sub_domain" {
-  name = var.kops_sub_domain
+  name          = var.kops_sub_domain
   force_destroy = true
 }
 
@@ -52,7 +52,7 @@ resource "aws_route53_record" "dns_record" {
 }
 
 resource "aws_s3_bucket" "kops_state" {
-  bucket = "${random_pet.bucket_name.id}-kops-state"
+  bucket        = "${random_pet.bucket_name.id}-kops-state"
   force_destroy = true
 }
 
