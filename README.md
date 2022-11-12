@@ -152,4 +152,4 @@ terraform destroy -auto-approve
 
 ## Known Bugs
 
-- When installing Kubernetes Version `>1.25.1`, there is a pending `ebs-csi-controller` deployment. On the master node, run `kubectl scale deploy ebs-csi-controller --replicas=1 -n kube-system` to fix it and you cluster should work
+- When installing Kubernetes Version `>1.25.1`, there is a pending `ebs-csi-controller` deployment. On the master node, run `kubectl scale deploy ebs-csi-controller --replicas=1 -n kube-system` to fix it and the cluster should work
