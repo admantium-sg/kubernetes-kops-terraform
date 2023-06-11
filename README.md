@@ -28,7 +28,7 @@ export TF_VAR_kops_aws_region=eu-central-1
 
 It’s recommended to use a non-admin user for creating the kops specific AWS resources like S3 buckets, DNS zones and the EC2 instances.
 
-Therefore, first call terraform with your admin user account to create an IAM user specific for kops.
+Therefore, first call `terraform` with your admin user account to create an IAM user specific for kops.
 
 ```bash
 export AWS_ACCESS_KEY=$AWS_ACCESS_KEY_ADMIN_USER
@@ -67,7 +67,7 @@ Get the nameserver information and enter them at your registrar:
 terraform output kops_name_servers
 ```
 
-### 4. Initialize the kops Cluster
+### 4. Cluster Initialization
 
 One-shot installation without any customization:
 
@@ -107,9 +107,9 @@ kops update cluster \
   --yes \
 ```
 
-### 5. Access the kops Cluster
+### 5. Cluster Access
 
-Use `kops` to get the `kubeconfig` file
+Use `kops` to get the `kubeconfig` file:
 
 ```bash
 kops validate cluster --wait 10m && kops export kubeconfig --admin
@@ -123,7 +123,7 @@ ssh -i .ssh/id_rsa.key ubuntu@api.${KOPS_CLUSTER_NAME}
 
 ## Customization
 
-The configuration of a `kops` Kubernetes cluster is contained om a YAML file.  You can configure the Kubernetes version and many otther aspects of your cluster, check the [kops documentation](https://kops.sigs.k8s.io/cluster_spec/).
+The configuration of a `kops` Kubernetes cluster is contained in a YAML file.  You can configure the Kubernetes version and many other aspects of your cluster, check the [kops documentation](https://kops.sigs.k8s.io/cluster_spec/).
 
 Run this command...
 
